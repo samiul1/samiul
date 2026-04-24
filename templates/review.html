@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Our Services - Samiul Moto Garage{% endblock %}
+{% block content %}
+<div class="bg-cover bg-center min-h-screen py-16" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('{{ url_for('static', filename='images/service.jpg') }}');">
+    <h2 class="text-3xl font-bold text-center mb-8">🛠️ Our Services</h2>
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {% for service in services %}
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition relative">
+            <img src="{{ url_for('static', filename='images/' + service.image) }}" alt="{{ service.name }}" class="h-40 w-full object-cover rounded-t-lg">
+            {% if service.name == 'Oil Change' %}
+            <span class="absolute top-4 right-4 bg-red-600 text-white px-2 py-1 rounded animate-pulse">Popular</span>
+            {% endif %}
+            <h3 class="text-xl font-semibold mt-4">{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+            <p class="mt-2"><strong>Price:</strong> {{ service.price }}</p>
+            <p><strong>Duration:</strong> {{ service.duration }}</p>
+            <a href="/booking" class="block mt-4 bg-red-600 text-white p-2 rounded hover:bg-red-700 text-center">Book Now</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

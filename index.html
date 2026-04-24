@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+{% block title %}Home - Samiul Moto Garage{% endblock %}
+
+{% block content %}
+
+ 
+<!-- Hero Section -->
+<div id="hero"
+     class="bg-cover bg-center h-screen flex items-center justify-center relative transition-all duration-1000"
+     style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('{{ url_for('static', filename='images/ss.jpg') }}');">
+
+
+ <!-- Passport Photo -->
+        <img src="{{ url_for('static', filename='images/samiul.png') }}"
+             class="w-66 h-60 mx-auto rounded-full border-4 border-green-500 object-cover">
+
+    <div class="text-center animate-fade-in">
+        <h1 class="text-6xl font-extrabold mb-6 text-yellow-300 drop-shadow-lg">
+            Welcome to Samiul Moto Garage
+        </h1>
+
+        {% if current_user.is_authenticated %}
+            <p class="text-2xl mb-6">
+                Hello, <strong>{{ current_user.username }}</strong>! Ready to ride with luck?
+            </p>
+            <a href="/booking"
+               class="bg-green-600 text-white px-8 py-4 rounded-full hover:bg-green-500 transition transform hover:scale-105">
+               Make a Booking
+            </a>
+        {% else %}
+            <p class="text-2xl mb-6">
+                Join the lucky ride!
+                <a href="/login" class="text-yellow-300 hover:underline">Login</a> or
+                <a href="/register" class="text-yellow-300 hover:underline">Register</a>.
+            </p>
+        {% endif %}
+    </div>
+
+    <div class="absolute bottom-10 animate-bounce">
+        <svg class="w-8 h-8 text-yellow-300" fill="none" stroke="currentColor"
+             viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
+</div>
+  <!-- Phone -->
+        <p class="text-yellow-300 mt-5 text-lg font-semibold">
+            📞 +91 8927812560
+        </p>
+
+    </div>
+</section>
+
+       
+
+        <!-- Name -->
+        <h3 class="text-2xl mt-4 text-green-400 font-bold">
+            Amit Razok
+        </h3>
+
+        <!-- Role -->
+        <p class="text-gray-200 text-lg">
+            Service Manager & Head Mechanic
+        </p>
+
+        <!-- Short Paragraph -->
+        <p class="text-gray-300 mt-4 text-sm leading-relaxed">
+            10+ years of experience in motorcycle servicing, ECU diagnostics, 
+            engine repair and full bike maintenance. Dedicated to providing 
+            fast, trusted and professional service.
+        </p>
+ 
+
+<!-- Services Section -->
+<section class="py-20 bg-gray-800">
+    <h2 class="text-4xl font-bold text-center mb-12 text-yellow-300">🛠️ Our Lucky Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto px-4">
+
+        <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+            <img src="{{ url_for('static', filename='images/oil.jpg') }}"
+                 class="h-48 w-full object-cover rounded-t-xl">
+            <h3 class="text-2xl font-semibold mt-4 text-green-400">Oil Change</h3>
+            <p class="text-gray-300">Premium engine oil for a smooth, lucky ride.</p>
+        </div>
+
+        <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+            <img src="{{ url_for('static', filename='images/ecu.jpg') }}"
+                 class="h-48 w-full object-cover rounded-t-xl">
+            <h3 class="text-2xl font-semibold mt-4 text-green-400">Diagnostics</h3>
+            <p class="text-gray-300">Spot issues early for a worry-free journey.</p>
+        </div>
+
+        <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+            <img src="{{ url_for('static', filename='images/service.jpg') }}"
+                 class="h-48 w-full object-cover rounded-t-xl">
+            <h3 class="text-2xl font-semibold mt-4 text-green-400">Full Service</h3>
+            <p class="text-gray-300">Complete care for your bike's lucky streak.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-20 bg-gray-900">
+    <h2 class="text-4xl font-bold text-center mb-12 text-yellow-300">What Our Customers Say</h2>
+    <div class="carousel container mx-auto px-4">
+        <div class="carousel-inner flex transition-transform duration-500">
+
+            <div class="min-w-full text-center p-6">
+                <p class="text-xl italic text-gray-300">
+                    "Samiul Moto Garage transformed my bike! It runs smoother than ever."
+                </p>
+                <p class="mt-4 font-semibold text-green-400">— John D.</p>
+            </div>
+
+            <div class="min-w-full text-center p-6">
+                <p class="text-xl italic text-gray-300">
+                    "Fast service and great staff. My go-to garage!"
+                </p>
+                <p class="mt-4 font-semibold text-green-400">— Sarah K.</p>
+            </div>
+
+            <div class="min-w-full text-center p-6">
+                <p class="text-xl italic text-gray-300">
+                    "Lucky to find this place. Top-notch diagnostics!"
+                </p>
+                <p class="mt-4 font-semibold text-green-400">— Mike R.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="py-20 bg-gray-800 text-center">
+    <h2 class="text-4xl font-bold mb-12 text-yellow-300">Our Achievements</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto">
+
+        <div>
+            <h3 class="text-5xl text-green-400 counter" data-target="1500">0</h3>
+            <p class="text-gray-300 mt-4">Bikes Serviced</p>
+        </div>
+
+        <div>
+            <h3 class="text-5xl text-green-400 counter" data-target="10">0</h3>
+            <p class="text-gray-300 mt-4">Years in Business</p>
+        </div>
+
+        <div>
+            <h3 class="text-5xl text-green-400 counter" data-target="500">0</h3>
+            <p class="text-gray-300 mt-4">Happy Customers</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="py-20 bg-gray-900">
+    <h2 class="text-4xl text-center mb-12 text-yellow-300">Get in Touch</h2>
+
+    <form action="/contact" method="POST" class="max-w-lg mx-auto px-4">
+
+        <input type="text" name="name" placeholder="Name"
+               class="w-full p-3 mb-4 bg-gray-800 text-white rounded">
+
+        <input type="email" name="email" placeholder="Email"
+               class="w-full p-3 mb-4 bg-gray-800 text-white rounded">
+
+        <textarea name="message" rows="5"
+                  class="w-full p-3 mb-4 bg-gray-800 text-white rounded"></textarea>
+
+        <button class="bg-green-600 w-full p-3 rounded text-white">
+            Send Message
+        </button>
+
+    </form>
+</section>
+
+<!-- JS for Background Slider -->
+<script>
+const images = [
+    "{{ url_for('static', filename='images/ss.jpg') }}",
+    "{{ url_for('static', filename='images/oil.jpg') }}",
+    "{{ url_for('static', filename='images/service.jpg') }}",
+    "{{ url_for('static', filename='images/ecu.jpg') }}"
+];
+
+let index = 0;
+const hero = document.getElementById("hero");
+
+setInterval(() => {
+    index = (index + 1) % images.length;
+    hero.style.backgroundImage =
+        `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('${images[index]}')`;
+}, 4000);
+</script>
+
+{% endblock %}
+
+
